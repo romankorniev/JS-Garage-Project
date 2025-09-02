@@ -1,0 +1,85 @@
+body {
+    background-color: rgb(241, 241, 241);
+    margin: 0 auto;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container_avto {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.container  {
+    background-color: white;
+    width: 1400px;
+    margin: 0 auto;
+    border-radius: 25px;
+    border: 2px black solid;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.span_img img {
+    width: 300px;
+    height: 200px;
+    border-radius: 25px;
+    border: 2px black solid;
+}
+
+.addcar {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.addcar input {
+    width: 200px;
+    height: 30px;
+    margin: 5px 0;
+}
+
+.addcar button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.addcar button:hover{
+    background-color: rgb(185, 121, 1);
+    transition: 0.5s ease;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+.sort {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 20px;
+    align-items: center;
+}
+
+select {
+    width: 210px;
+    height: 30px;
+    margin: 5px 0;
+}

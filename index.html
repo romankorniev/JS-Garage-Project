@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гараж авто</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header1">
+        <h1>Твої тачки 🤙🤤</h1>
+    </div>
+    <h2>Додати авто 🚗</h2>
+    <div class="controls">
+        <div class="addcar">
+            <input type="text" id="carName" placeholder="Марка">
+            <input type="text" id="carModel" placeholder="Модель">
+            <input type="number" id="carYear" placeholder="Рік" min="0">
+            <input type="number" id="carPrice" placeholder="Ціна" min="0">
+            <input type="number" id="carRun" placeholder="Пробіг" min="0">
+            <input type="text" id="carImg" placeholder="Додате картинку авто (за бажанням)">
+            <select name="presentCat" id="isInGarage">
+                <option value="Авто в гаражі ✅">Так </option>
+                <option value="Авто не в гаражі ❌">Ні </option>
+            </select>
+            <button id="addCarBtn">Додати авто</button>
+        </div>
+    </div>
+    <div class="sort">
+        <h3>Сортування:</h3>
+        <select id="sortCars">
+            <option value="alphabet">По алфавіту</option>
+            <option value="priceDown">За ціною (від дешевих до дорогих)</option>
+            <option value="priceUp">За ціною (від дорогих до дешевих)</option>
+            <option value="runDown">Пробіг (за збільшенням)</option>
+            <option value="runUp">Пробіг (за зменшенням)</option>
+            <option value="yearDown">Рік (за збільшенням)</option>
+            <option value="yearUp">Рік (за зменшенням)</option>
+        </select>
+    </div>
+
+    <div id="carsContainer">
+
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
