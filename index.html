@@ -11,47 +11,114 @@
         <h1>Твої тачки 🤙🤤</h1>
     </div>
     <h2>Додати авто 🚗</h2>
-    <div class="controls">
-        <div class="addcar">
-            <input type="text" id="carName" placeholder="Марка">
-            <input type="text" id="carModel" placeholder="Модель">
-            <input type="number" id="carYear" placeholder="Рік" min="0">
-            <input type="number" id="carPrice" placeholder="Ціна" min="0">
-            <label for="fuelType">
-                Тип палива
-            </label>
-            <select name="presentCat" id="fuelType">
-                <option value="Бензин">Бензин </option>
-                <option value="Дизель">Дизель </option>
-                <option value="Газ/Бензин">Газ/Бензин </option>
-                <option value="Газ">Газ </option>
-            </select>
-            <input type="number" id="engineSize" placeholder="Об'єм двигуна" min="0">
-            <input type="number" id="carRun" placeholder="Пробіг" min="0">
-            <input type="text" id="carImg" placeholder="Додате картинку авто (за бажанням)">
-            <label for="isInGarage">
-                Авто в гаражі?
-            </label>
-            <select name="presentCat" id="isInGarage">
-                <option value="Авто в гаражі ✅">Так </option>
-                <option value="Авто не в гаражі ❌">Ні </option>
-            </select>
-            <button id="addCarBtn">Додати авто</button>
+    <div class="nav">
+        <div class="controls">
+            <div class="addcar">
+                <input type="text" id="carName" placeholder="Марка">
+                <input type="text" id="carModel" placeholder="Модель">
+                <input type="number" id="carYear" placeholder="Рік" min="0">
+                <input type="number" id="carPrice" placeholder="Ціна" min="0">
+                <label for="fuelType">
+                    Тип палива
+                </label>
+                <select name="presentCat" id="fuelType">
+                    <option value="Бензин">Бензин </option>
+                    <option value="Дизель">Дизель </option>
+                    <option value="Газ/Бензин">Газ/Бензин </option>
+                    <option value="Газ">Газ </option>
+                </select>
+                <input type="number" id="engineSize" placeholder="Об'єм двигуна" min="0">
+                <input type="number" id="carRun" placeholder="Пробіг" min="0">
+                <input type="text" id="carImg" placeholder="Додате картинку авто (за бажанням)">
+                <label for="isInGarage">
+                    Авто в гаражі?
+                </label>
+                <select name="presentCat" id="isInGarage">
+                    <option value="Авто в гаражі ✅">Так </option>
+                    <option value="Авто не в гаражі ❌">Ні </option>
+                </select>
+                <button id="addCarBtn">Додати авто</button>
+            </div>
+        </div>
+        <div id="sort">
+            <h3>Сортування:</h3>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="alphabet" checked>По алфавіту</input>
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="priceDown">За ціною (від дешевих до дорогих)</input>
+                </label>
+            </span> 
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="priceUp">За ціною (від дорогих до дешевих)</input>
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="runDown">Пробіг (за збільшенням)</input>
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="runUp">Пробіг (за зменшенням)</input>
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="yearDown">Рік (за збільшенням)</input>
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="yearUp">Рік (за зменшенням)</input>
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="sizeUp">Об'єм двигуна (за збільшенням)</input>
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="sortOption" value="sizeDown">Об'єм двигуна (за зменшенням)</input>
+                </label>
+            </span>
+            <h3>Чи авто в гаражі:</h3>
+            <span>
+                <label>
+                    <input type="radio" name="filterIsInGarage" value="Авто в гаражі ✅"> Авто в гаражі
+                </label>
+                <label>
+                    <input type="radio" name="filterIsInGarage" value="Авто не в гаражі ❌"> Авто не в гаражі
+                </label>
+            </span>
+            <h3>Тип палива:</h3>
+            <span>
+                <label>
+                    <input type="radio" name="filterFuelType" value="Бензин"> Бензин
+                </label>
+                <label>
+                    <input type="radio" name="filterFuelType" value="Дизель"> Дизель
+                </label>
+                <label>
+                    <input type="radio" name="filterFuelType" value="Газ"> Газ
+                </label>
+                <label>
+                    <input type="radio" name="filterFuelType" value="Газ/Бензин"> Газ/Бензин
+                </label>
+                <label>
+                    <input type="radio" name="filterFuelType" value="Гібрид"> Гібрид
+                </label>
+                <label>
+                    <input type="radio" name="filterFuelType" value="Електро"> Електро
+                </label>
+            </span>
         </div>
     </div>
-    <div class="sort">
-        <h3>Сортування:</h3>
-        <select id="sortCars">
-            <option value="alphabet">По алфавіту</option>
-            <option value="priceDown">За ціною (від дешевих до дорогих)</option>
-            <option value="priceUp">За ціною (від дорогих до дешевих)</option>
-            <option value="runDown">Пробіг (за збільшенням)</option>
-            <option value="runUp">Пробіг (за зменшенням)</option>
-            <option value="yearDown">Рік (за збільшенням)</option>
-            <option value="yearUp">Рік (за зменшенням)</option>
-        </select>
-    </div>
-
     <div id="carsContainer">
 
     </div>

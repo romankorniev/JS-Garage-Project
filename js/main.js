@@ -157,7 +157,7 @@ let cars = [
         name: 'Mercedes-Benz', 
         model: 'GLE-class', 
         year: 2017, 
-        price: 415000, 
+        price: 41500, 
         run: 159000, 
         fuel: "Дизель",
         size: 3,   
@@ -315,6 +315,14 @@ function sortCars(option){
 
         case 'yearUp':
             cars.sort((a,b) => b.year - a.year)
+        break
+
+        case 'sizeUp':
+            cars.sort((a,b) => a.size - b.size)
+        break
+
+        case 'sizeDown':
+            cars.sort((a,b) => b.size - a.size)
         break
     }
 
