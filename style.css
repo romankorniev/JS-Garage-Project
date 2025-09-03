@@ -70,7 +70,7 @@ button {
     cursor: pointer;
 }
 
-#sort {
+#sortContainer {
     display: flex;
     justify-content: center;
     align-items: center;

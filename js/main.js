@@ -8,6 +8,17 @@ let cars = [
         fuel: "Бензин",
         size: 1.4,
         img: "./img/civic6.jpg",
+        isInGarage: "Авто не в гаражі ❌"
+    },
+    {
+        name: "Ferrari", 
+        model: 'California', 
+        year: 2010, 
+        price: 110000, 
+        run: 35000,
+        fuel: "Бензин",
+        size: 4.3,
+        img: "./img/ferrari_california.avif",
         isInGarage: "Авто в гаражі ✅"
     },
     {
@@ -19,7 +30,7 @@ let cars = [
         fuel: "Бензин",
         size: 3.6,
         img: "./img/JeepWrangler2019.avif",
-        isInGarage: "Авто в гаражі ✅"
+        isInGarage: "Авто не в гаражі ❌"
     },
     {
         name: "Jeep", 
@@ -52,7 +63,7 @@ let cars = [
         fuel: "Дизель",
         size: 4.4, 
         img: "./img/rangerover3.jpg",
-        isInGarage: "Авто в гаражі ✅"
+        isInGarage: "Авто не в гаражі ❌"
     },
     { 
         name: "Mitsubishi", 
@@ -64,6 +75,17 @@ let cars = [
         size: 2.2,  
         img: "./img/Lancer2008.jpg",
         isInGarage: "Авто не в гаражі ❌"
+    },
+    { 
+        name: "Porsche", 
+        model: '911', 
+        year: 2025, 
+        price: 299900,
+        run: 1000,
+        fuel: "Бензин",
+        size: 3.6,  
+        img: "./img/porsch_911.jpeg",
+        isInGarage: "Авто в гаражі ✅"
     },
     { 
         name: "Volkswagen", 
@@ -99,6 +121,17 @@ let cars = [
         isInGarage: "Авто не в гаражі ❌"
     },
     { 
+        name: "Renault", 
+        model: 'Zoe', 
+        year: 2018, 
+        price: 8500,
+        run: 157000,
+        fuel: "Електро",
+        size: 0,  
+        img: "./img/zoe.jpg",
+        isInGarage: "Авто не в гаражі ❌"
+    },
+    { 
         name: 'Alfa Romeo', 
         model: 'Giulia', 
         year: 2020, 
@@ -107,7 +140,7 @@ let cars = [
         fuel: "Бензин",
         size: 2,  
         img: './img/Guilia2019.jpg',
-        isInGarage: "Авто в гаражі ✅"
+        isInGarage: "Авто не в гаражі ❌"
     },
     { 
         name: 'Alfa Romeo', 
@@ -118,7 +151,7 @@ let cars = [
         fuel: "Бензин",
         size: 1.9,   
         img: './img/159_2008.jpg',
-        isInGarage: "Авто в гаражі ✅"
+        isInGarage: "Авто не в гаражі ❌"
     },
     { 
         name: 'Alfa Romeo', 
@@ -132,6 +165,17 @@ let cars = [
         isInGarage: "Авто не в гаражі ❌"
     },
     { 
+        name: 'Bentely', 
+        model: 'Bentayga', 
+        year: 2021, 
+        price: 185500, 
+        run: 43000,
+        fuel: "Гібрид",
+        size: 3,  
+        img: './img/bentley_B.jpg',
+        isInGarage: "Авто в гаражі ✅"
+    },
+    { 
         name: 'Alfa Romeo', 
         model: '159', 
         year: 2008, 
@@ -140,7 +184,7 @@ let cars = [
         fuel: "Дизель",
         size: 2.4,   
         img: './img/159_3.jpg',
-        isInGarage: "Авто в гаражі ✅"
+        isInGarage: "Авто не в гаражі ❌"
     },
     { 
         name: 'Mercedes-Benz', 
@@ -185,33 +229,101 @@ let cars = [
         size: 6,  
         img: './img/bentley_GT.jpg',
         isInGarage: "Авто в гаражі ✅"
+    },
+    { 
+        name: 'Volvo', 
+        model: 'XC90', 
+        year: 2022, 
+        price: 53900, 
+        run: 28000,
+        fuel: "Гібрид",
+        size: 1.97,  
+        img: './img/volvo90.jpg',
+        isInGarage: "Авто не в гаражі ❌"
+    },
+    { 
+        name: 'Land Rover', 
+        model: 'Range Rover', 
+        year: 2024, 
+        price: 230000, 
+        run: 2000,
+        fuel: "Гібрид",
+        size: 4.39,  
+        img: './img/rangerover5.jpg',
+        isInGarage: "Авто в гаражі ✅"
+    },
+    { 
+        name: 'ZAZ', 
+        model: '1103 Славута', 
+        year: 2007, 
+        price: 900, 
+        run: 173000,
+        fuel: "Газ/Бензин",
+        size: 1.2,  
+        img: './img/slavuta.jpg',
+        isInGarage: "Авто в гаражі ✅"
+    },
+    { 
+        name: 'Hyundai', 
+        model: 'ioniq 6', 
+        year: 2023, 
+        price: 26900, 
+        run: 6000,
+        fuel: "Електро",
+        size: 0,  
+        img: './img/ioniq6.jpg',
+        isInGarage: "Авто не в гаражі ❌"
     }
 ]
 
-function showCars(list = cars) {
+function showCars(list = cars){
     const container = document.getElementById('carsContainer')
     container.innerHTML = ""
 
-    list.forEach(car => {
-        const index = cars.indexOf(car)
+    list.forEach((car, index) => {
         container.innerHTML += `
         <div class="container">
             <div class="container_avto">
-                <span class="span_img"><img src="${car.img}" alt="${car.name}"></span>
-                <div class="name"><h3>Назва</h3><p>${car.name.toUpperCase()}<br>${car.model.toUpperCase()}</p></div>
-                <div class="year"><h3>Рік випуску</h3><p>${car.year}</p></div>
-                <div class="price"><h3>Ціна</h3><p>${car.price} $</p></div>
-                <div class="fuelType"><h3>Тип палива</h3><p>${car.fuel}</p></div>
-                <div class="size"><h3>Об'єм двигуна</h3><p>${car.size} л.</p></div>
-                <div class="run"><h3>Пробіг</h3><p>${car.run} км</p></div>
-                <div class="isInGarage"><h3>Авто в гаражі?</h3><p>${car.isInGarage}</p></div>
-                <div><button class="button_delete" onclick="deleteCar(${index})">Видалити 🗑️</button></div>
+                <span class="span_img">
+                    <img src="${car.img}" alt="${car.name}">
+                </span>
+                <div class="name">
+                    <h3>Назва</h3>
+                    <p>${car.name.toUpperCase()}<br>${car.model.toUpperCase()}</p>
+                </div>
+                <div class="year">
+                    <h3>Рік випуску</h3>
+                    <p>${car.year}</p>
+                </div>
+                <div class="price">
+                    <h3>Ціна</h3>
+                    <p>${car.price} $</p>
+                </div>
+                <div class="fuelType">
+                    <h3>Тип палива</h3>
+                    <p>${car.fuel}</p>
+                </div>
+                <div class="size">
+                    <h3>Об'єм двигуна</h3>
+                    <p>${car.size} л.</p>
+                </div>
+                <div class="run">
+                    <h3>Пробіг</h3>
+                    <p>${car.run} км</p>
+                </div>
+                <div class="isInGarage">
+                    <h3>Авто в гаражі?</h3>
+                    <p>${car.isInGarage}</p>
+                </div>
+                <div>
+                    <button class="button_delete" onclick="deleteCar(${index})">Видалити 🗑️</button>
+                </div>
             </div>
         </div>`
     })
 }
 
-function addCar() {
+function addCar(){
     const name = document.getElementById("carName").value
     const model = document.getElementById("carModel").value
     const year = document.getElementById("carYear").value
@@ -223,8 +335,8 @@ function addCar() {
     const isCarPresent = document.getElementById("isInGarage").value
 
     if(!name || !model || !year || !price || !type || !eSize || !run || !isCarPresent){
-        alert("Заповни всі поля!");
-        return;
+        alert("Заповни всі поля!")
+        return
     }
 
     cars.push({
@@ -249,12 +361,12 @@ function addCar() {
     document.getElementById("carImg").value = ""
     document.getElementById("isInGarage").value = ""
 
-    showCars()
+    filterCars()
 }
 
 function deleteCar(index){
     cars.splice(index, 1)
-    showCars()
+    filterCars()
 }
 
 function filterCars(){
@@ -273,33 +385,13 @@ function filterCars(){
 function applySort(list){
     const sortValue = document.getElementById('sort').value
     switch(sortValue){
-        case 'alphabet':
-            list.sort((a,b) => a.name.localeCompare(b.name))
-        break
-
-        case 'priceDown':
-            list.sort((a,b) => a.price - b.price)
-        break
-
-        case 'priceUp':
-            list.sort((a,b) => b.price - a.price)
-        break
-
-        case 'yearDown':
-            list.sort((a,b) => a.year - b.year)
-        break
-
-        case 'yearUp':
-            list.sort((a,b) => b.year - a.year)
-        break
-
-        case 'sizeUp':
-            list.sort((a,b) => a.size - b.size)
-        break
-
-        case 'sizeDown':
-            list.sort((a,b) => b.size - a.size)
-        break
+        case 'alphabet': list.sort((a,b) => a.name.localeCompare(b.name)); break
+        case 'priceDown': list.sort((a,b) => a.price - b.price); break
+        case 'priceUp': list.sort((a,b) => b.price - a.price); break
+        case 'yearDown': list.sort((a,b) => a.year - b.year); break
+        case 'yearUp': list.sort((a,b) => b.year - a.year); break
+        case 'sizeUp': list.sort((a,b) => a.size - b.size); break
+        case 'sizeDown': list.sort((a,b) => b.size - a.size); break
     }
 }
 
