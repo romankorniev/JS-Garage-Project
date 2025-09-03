@@ -238,15 +238,17 @@ function showCars() {
 }
 
 function addCar() {
-    const name = document.getElementById("carName").value;
-    const model = document.getElementById("carModel").value;
-    const year = document.getElementById("carYear").value;
-    const price = document.getElementById("carPrice").value;
-    const run = document.getElementById("carRun").value;
-    const img = document.getElementById("carImg").value;
+    const name = document.getElementById("carName").value
+    const model = document.getElementById("carModel").value
+    const year = document.getElementById("carYear").value
+    const price = document.getElementById("carPrice").value
+    const type = document.getElementById("fuelType").value
+    const eSize = document.getElementById("engineSize").value
+    const run = document.getElementById("carRun").value
+    const img = document.getElementById("carImg").value
     const isCarPresent = document.getElementById("isInGarage").value
 
-    if (!name || !model || !year || !price || !run || !isCarPresent) {
+    if (!name || !model || !year || !price || !type || !eSize || !run || !isCarPresent) {
         alert("Заповни всі поля!");
         return;
     }
@@ -256,18 +258,22 @@ function addCar() {
         model,
         year: parseInt(year),
         price: parseInt(price),
+        fuel: type,
+        size: parseFloat(eSize),
         run: parseInt(run),
         img,
         isInGarage: isCarPresent
-    });
+    })
 
-    document.getElementById("carName").value = "";
-    document.getElementById("carModel").value = "";
-    document.getElementById("carYear").value = "";
-    document.getElementById("carPrice").value = "";
-    document.getElementById("carRun").value = "";
-    document.getElementById("carImg").value = "";
-    document.getElementById("isInGarage").value = "";
+    document.getElementById("carName").value = ""
+    document.getElementById("carModel").value = ""
+    document.getElementById("carYear").value = ""
+    document.getElementById("carPrice").value = ""
+    document.getElementById("fuelType").value = ""
+    document.getElementById("engineSize").value = ""
+    document.getElementById("carRun").value = ""
+    document.getElementById("carImg").value = ""
+    document.getElementById("isInGarage").value = ""
 
     showCars();
 }
