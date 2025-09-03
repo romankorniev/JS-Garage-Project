@@ -188,50 +188,24 @@ let cars = [
     }
 ]
 
-function showCars() {
+function showCars(list = cars) {
     const container = document.getElementById('carsContainer')
-    container.innerHTML = "";
+    container.innerHTML = ""
 
-    cars.forEach((car, index) => {
+    list.forEach(car => {
+        const index = cars.indexOf(car)
         container.innerHTML += `
         <div class="container">
             <div class="container_avto">
-                <span class="span_img">
-                    <img src="${car.img}" alt="${car.name}">
-                </span>
-                <div class="name">
-                    <h3>Назва</h3>
-                    <p>${car.name.toUpperCase()}
-                    <br>
-                    ${car.model.toUpperCase()}</p>
-                </div>
-                <div class="year">
-                    <h3>Рік випуску</h3>
-                    <p>${car.year}</p>
-                </div>
-                <div class="price">
-                    <h3>Ціна</h3>
-                    <p>${car.price} $</p>
-                </div>
-                <div class="fuelType">
-                    <h3>Тип палива</h3>
-                    <p>${car.fuel}</p>
-                </div>
-                <div class="size">
-                    <h3>Об'єм двигуна</h3>
-                    <p>${car.size} л.</p>
-                </div>
-                <div class="run">
-                    <h3>Пробіг</h3>
-                    <p>${car.run} км</p>
-                </div>
-                <div class="isInGarage">
-                    <h3>Авто в гаражі?</h3>
-                    <p>${car.isInGarage}</p>
-                </div>
-                <div>
-                    <button class="button_delete" onclick="deleteCar(${index})">Видалити 🗑️</button>
-                </div>
+                <span class="span_img"><img src="${car.img}" alt="${car.name}"></span>
+                <div class="name"><h3>Назва</h3><p>${car.name.toUpperCase()}<br>${car.model.toUpperCase()}</p></div>
+                <div class="year"><h3>Рік випуску</h3><p>${car.year}</p></div>
+                <div class="price"><h3>Ціна</h3><p>${car.price} $</p></div>
+                <div class="fuelType"><h3>Тип палива</h3><p>${car.fuel}</p></div>
+                <div class="size"><h3>Об'єм двигуна</h3><p>${car.size} л.</p></div>
+                <div class="run"><h3>Пробіг</h3><p>${car.run} км</p></div>
+                <div class="isInGarage"><h3>Авто в гаражі?</h3><p>${car.isInGarage}</p></div>
+                <div><button class="button_delete" onclick="deleteCar(${index})">Видалити 🗑️</button></div>
             </div>
         </div>`
     })
@@ -248,7 +222,7 @@ function addCar() {
     const img = document.getElementById("carImg").value
     const isCarPresent = document.getElementById("isInGarage").value
 
-    if (!name || !model || !year || !price || !type || !eSize || !run || !isCarPresent) {
+    if(!name || !model || !year || !price || !type || !eSize || !run || !isCarPresent){
         alert("Заповни всі поля!");
         return;
     }
@@ -275,60 +249,65 @@ function addCar() {
     document.getElementById("carImg").value = ""
     document.getElementById("isInGarage").value = ""
 
-    showCars();
+    showCars()
 }
-
-document.getElementById("addCarBtn").addEventListener("click", addCar)
-
-showCars()
 
 function deleteCar(index){
     cars.splice(index, 1)
     showCars()
 }
 
-function sortCars(option){
-    switch(option){
+function filterCars(){
+    const fuelType = document.querySelector('input[name="filterFuelType"]:checked')?.value
+    const isInGarage = document.querySelector('input[name="filterIsInGarage"]:checked')?.value
+
+    let filtered = [...cars]
+
+    if(fuelType) filtered = filtered.filter(car => car.fuel === fuelType)
+    if(isInGarage) filtered = filtered.filter(car => car.isInGarage === isInGarage)
+
+    applySort(filtered)
+    showCars(filtered)
+}
+
+function applySort(list){
+    const sortValue = document.getElementById('sort').value
+    switch(sortValue){
         case 'alphabet':
-            cars.sort((a, b) => (a.name).localeCompare(b.name))
+            list.sort((a,b) => a.name.localeCompare(b.name))
         break
 
         case 'priceDown':
-            cars.sort((a,b) => a.price - b.price)
+            list.sort((a,b) => a.price - b.price)
         break
 
         case 'priceUp':
-            cars.sort((a,b) => b.price - a.price)
-        break
-
-        case 'runDown':
-            cars.sort((a,b) => a.run - b.run)
-        break
-
-        case 'runUp':
-            cars.sort((a,b) => b.run - a.run)
+            list.sort((a,b) => b.price - a.price)
         break
 
         case 'yearDown':
-            cars.sort((a,b) => a.year - b.year)
+            list.sort((a,b) => a.year - b.year)
         break
 
         case 'yearUp':
-            cars.sort((a,b) => b.year - a.year)
+            list.sort((a,b) => b.year - a.year)
         break
 
         case 'sizeUp':
-            cars.sort((a,b) => a.size - b.size)
+            list.sort((a,b) => a.size - b.size)
         break
 
         case 'sizeDown':
-            cars.sort((a,b) => b.size - a.size)
+            list.sort((a,b) => b.size - a.size)
         break
     }
-
-    showCars()
 }
 
-document.getElementById('sort'),addEventListener('change', (event) => {
-    sortCars(event.target.value)
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("addCarBtn").addEventListener('click', addCar)
+    document.getElementById('sort').addEventListener('change', filterCars)
+    document.querySelectorAll('input[name="filterFuelType"], input[name="filterIsInGarage"]').forEach(el => {
+        el.addEventListener('change', filterCars)
+    })
+    showCars()
 })

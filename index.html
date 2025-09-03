@@ -42,51 +42,16 @@
         </div>
         <div id="sort">
             <h3>Сортування:</h3>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="alphabet" checked>По алфавіту</input>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="priceDown">За ціною (від дешевих до дорогих)</input>
-                </label>
-            </span> 
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="priceUp">За ціною (від дорогих до дешевих)</input>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="runDown">Пробіг (за збільшенням)</input>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="runUp">Пробіг (за зменшенням)</input>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="yearDown">Рік (за збільшенням)</input>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="yearUp">Рік (за зменшенням)</input>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="sizeUp">Об'єм двигуна (за збільшенням)</input>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input type="radio" name="sortOption" value="sizeDown">Об'єм двигуна (за зменшенням)</input>
-                </label>
-            </span>
+            <select id="sort">
+                <option value="" checked>Без сортування</option>
+                <option value="alphabet">По алфавіту</option>
+                <option value="priceDown">Ціна (за збільшенням)</option>
+                <option value="priceUp">Ціна (за зменшенням)</option>
+                <option value="yearDown">Рік (за збільшенням)</option>
+                <option value="yearUp">Рік (за зменшенням)</option>
+                <option value="sizeUp">Об'єм (за збільшенням)</option>
+                <option value="sizeDown">Об'єм (за зменшенням)</option>
+            </select>
             <h3>Чи авто в гаражі:</h3>
             <span>
                 <label>

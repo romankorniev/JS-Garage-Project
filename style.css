@@ -78,14 +78,6 @@ button {
     cursor: pointer;
 }
 
-#sort h3 {
-    margin: 0;
-}
-
-#sort span {
-    margin: 10px 0;
-}
-
 select {
     width: 210px;
     height: 30px;
