@@ -250,7 +250,7 @@ let cars = [
         fuel: "Гібрид",
         size: 4.39,  
         img: './img/rangerover5.jpg',
-        isInGarage: "Авто в гаражі ✅"
+        isInGarage: "Авто не в гаражі ❌"
     },
     { 
         name: 'ZAZ', 
@@ -316,7 +316,7 @@ function showCars(list = cars){
                     <p>${car.isInGarage}</p>
                 </div>
                 <div>
-                    <button class="button_delete" onclick="deleteCar(${index})">Видалити 🗑️</button>
+                    <button class="button_delete" onclick="deleteCar(${index})">Видалити</button>
                 </div>
             </div>
         </div>`
